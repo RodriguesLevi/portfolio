@@ -1,0 +1,286 @@
+/* Projects.css - seguindo metodologia BEM */
+
+.projects {
+    position: relative;
+    background-color: var(--color-bg-primary);
+    overflow: hidden;
+  }
+  
+  /* Elemento de fundo decorativo */
+  .projects::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(100, 255, 218, 0.05) 0%, rgba(10, 25, 47, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .projects__tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .projects__tab {
+    position: relative;
+    background: transparent;
+    border: none;
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--color-text-secondary);
+    font-size: var(--fz-sm);
+    font-family: var(--font-secondary);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .projects__tab:hover {
+    color: var(--color-accent-primary);
+  }
+  
+  .projects__tab--active {
+    color: var(--color-accent-primary);
+  }
+  
+  .projects__tab-indicator {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-accent-primary);
+    border-radius: var(--border-radius-full);
+  }
+  
+  .projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-lg);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .projects__item {
+    height: 100%;
+  }
+  
+  .projects__more {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-xxl);
+  }
+  
+  /* ProjectCard Component */
+  .project-card {
+    position: relative;
+    height: 100%;
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    z-index: 1;
+  }
+  
+  .project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius-md);
+    padding: 1px;
+    background: linear-gradient(
+      to bottom right,
+      transparent,
+      rgba(100, 255, 218, 0.3),
+      transparent
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+  }
+  
+  .project-card:hover::before {
+    opacity: 1;
+  }
+  
+  .project-card__image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .project-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+  
+  .project-card:hover .project-card__image {
+    transform: scale(1.05);
+  }
+  
+  .project-card__image-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(10, 25, 47, 0.7);
+    z-index: 1;
+  }
+  
+  .project-card__featured {
+    position: absolute;
+    top: var(--space-xs);
+    left: var(--space-xs);
+    background-color: var(--color-accent-primary);
+    color: var(--color-bg-primary);
+    font-size: var(--fz-xxs);
+    font-weight: var(--fw-medium);
+    padding: 2px var(--space-xs);
+    border-radius: var(--border-radius-sm);
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  
+  .project-card__content {
+    padding: var(--space-md);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .project-card__title {
+    color: var(--color-text-primary);
+    font-size: var(--fz-lg);
+    margin-bottom: var(--space-xs);
+    position: relative;
+    display: inline-block;
+  }
+  
+  .project-card__title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-accent-primary);
+    transition: width var(--transition-normal);
+  }
+  
+  .project-card:hover .project-card__title::after {
+    width: 100%;
+  }
+  
+  .project-card__description {
+    color: var(--color-text-secondary);
+    font-size: var(--fz-sm);
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+  }
+  
+  .project-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+  
+  .project-card__tag {
+    background-color: rgba(100, 255, 218, 0.1);
+    color: var(--color-accent-primary);
+    font-size: var(--fz-xxs);
+    font-family: var(--font-secondary);
+    padding: 2px var(--space-xs);
+    border-radius: var(--border-radius-sm);
+  }
+  
+  .project-card__links {
+    display: flex;
+    gap: var(--space-md);
+  }
+  
+  .project-card__link {
+    color: var(--color-text-tertiary);
+    transition: color var(--transition-normal);
+  }
+  
+  .project-card__link:hover {
+    color: var(--color-accent-primary);
+  }
+  
+  .project-card__icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .project-card__glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y), 
+      rgba(100, 255, 218, 0.1),
+      transparent 40%
+    );
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  /* Media queries para responsividade */
+  @media (max-width: 1024px) {
+    .projects__grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .projects__grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .projects__tabs {
+      flex-wrap: wrap;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .projects__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+    
+    .project-card__image-container {
+      height: 180px;
+    }
+  }
+  
+  /* Script para detectar a posição do mouse e criar o efeito de brilho */
+  /* Este script será adicionado no componente React usando useEffect */
+  /*
+    document.addEventListener('mousemove', e => {
+      document.querySelectorAll('.project-card').forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  */
