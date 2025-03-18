@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+
 
 const ProjectCard = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.div 
+    <div 
       className="project-card"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -74,13 +74,13 @@ const ProjectCard = ({ project }) => {
         </div>
       </div>
       
-      <motion.div 
+      <div 
         className="project-card__glow"
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       />
-    </motion.div>
+    </div>
   );
 };
 

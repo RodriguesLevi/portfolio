@@ -44,7 +44,7 @@ const Header = () => {
   });
 
   return (
-    <motion.header 
+    <header 
       className={headerClasses}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -89,7 +89,7 @@ const Header = () => {
           <span></span>
         </div>
       </button>
-    </motion.header>
+    </header>
   );
 };
 

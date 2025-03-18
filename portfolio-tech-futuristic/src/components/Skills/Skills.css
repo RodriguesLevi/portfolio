@@ -1,0 +1,266 @@
+/* Skills.css - seguindo metodologia BEM */
+
+.skills {
+    position: relative;
+    background-color: var(--color-bg-primary);
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Elementos decorativos de fundo */
+  .skills__decoration {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.1;
+    z-index: 0;
+  }
+  
+  .skills__decoration--1 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #64ffda 0%, #0a6cff 100%);
+    top: -100px;
+    left: -100px;
+  }
+  
+  .skills__decoration--2 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #ff64b4 0%, #6a5af9 100%);
+    bottom: -50px;
+    right: -50px;
+  }
+  
+  .skills__tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .skills__tab {
+    position: relative;
+    background: transparent;
+    border: none;
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--color-text-secondary);
+    font-size: var(--fz-sm);
+    font-family: var(--font-secondary);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+  
+  .skills__tab:hover {
+    color: var(--color-accent-primary);
+  }
+  
+  .skills__tab--active {
+    color: var(--color-accent-primary);
+  }
+  
+  .skills__tab-indicator {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-accent-primary);
+    border-radius: var(--border-radius-full);
+  }
+  
+  .skills__content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .skills__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+  
+  .skills__item {
+    height: 100%;
+    transition: transform var(--transition-normal);
+  }
+  
+  .skills__item:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Skill Card */
+  .skill-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--border-radius-md);
+    padding: var(--space-sm);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--color-accent-primary);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform var(--transition-normal);
+  }
+  
+  .skill-card:hover::before {
+    transform: scaleY(1);
+  }
+  
+  .skill-card:hover {
+    box-shadow: var(--shadow-lg);
+    background-color: rgba(35, 53, 84, 0.5);
+  }
+  
+  .skill-card__icon-wrapper {
+    flex: 0 0 50px;
+    margin-right: var(--space-sm);
+  }
+  
+  .skill-card__icon {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius-sm);
+    background-color: rgba(100, 255, 218, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+  }
+  
+  .skill-card:hover .skill-card__icon {
+    background-color: rgba(100, 255, 218, 0.2);
+    transform: scale(1.1);
+  }
+  
+  .skill-card__icon-img {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Placeholder para os ícones - em um projeto real seriam imagens/SVGs */
+  .skill-card__icon-img--html5 { background-color: #E44D26; }
+  .skill-card__icon-img--css3 { background-color: #1572B6; }
+  .skill-card__icon-img--javascript { background-color: #F0DB4F; }
+  .skill-card__icon-img--react { background-color: #61DAFB; }
+  .skill-card__icon-img--vuejs { background-color: #4FC08D; }
+  .skill-card__icon-img--sass { background-color: #CC6699; }
+  .skill-card__icon-img--tailwind { background-color: #38B2AC; }
+  .skill-card__icon-img--typescript { background-color: #3178C6; }
+  .skill-card__icon-img--nodejs { background-color: #68A063; }
+  .skill-card__icon-img--express { background-color: #000000; }
+  .skill-card__icon-img--python { background-color: #3776AB; }
+  .skill-card__icon-img--django { background-color: #092E20; }
+  .skill-card__icon-img--php { background-color: #777BB4; }
+  .skill-card__icon-img--mongodb { background-color: #47A248; }
+  .skill-card__icon-img--mysql { background-color: #4479A1; }
+  .skill-card__icon-img--firebase { background-color: #FFCA28; }
+  .skill-card__icon-img--git { background-color: #F05032; }
+  .skill-card__icon-img--webpack { background-color: #8DD6F9; }
+  .skill-card__icon-img--docker { background-color: #2496ED; }
+  .skill-card__icon-img--figma { background-color: #F24E1E; }
+  .skill-card__icon-img--vscode { background-color: #007ACC; }
+  .skill-card__icon-img--cicd { background-color: #41CD52; }
+  .skill-card__icon-img--jest { background-color: #C21325; }
+  .skill-card__icon-img--npm { background-color: #CB3837; }
+  
+  .skill-card__info {
+    flex: 1;
+  }
+  
+  .skill-card__name {
+    font-size: var(--fz-md);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+  }
+  
+  .skill-card__level-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .skill-card__level-track {
+    flex: 1;
+    height: 6px;
+    background-color: rgba(100, 255, 218, 0.1);
+    border-radius: var(--border-radius-full);
+    overflow: hidden;
+    margin-right: var(--space-xs);
+  }
+  
+  .skill-card__level-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent-primary) 0%, #5eead4 100%);
+    border-radius: var(--border-radius-full);
+  }
+  
+  .skill-card__level-text {
+    font-size: var(--fz-xs);
+    color: var(--color-accent-primary);
+    font-family: var(--font-secondary);
+    min-width: 40px;
+    text-align: right;
+  }
+  
+  /* Media queries para responsividade */
+  @media (max-width: 1024px) {
+    .skills__grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .skills__tabs {
+      flex-wrap: wrap;
+    }
+    
+    .skills__decoration {
+      opacity: 0.05;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .skills__grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .skill-card {
+      padding: var(--space-xs);
+    }
+    
+    .skill-card__icon-wrapper {
+      flex: 0 0 40px;
+      margin-right: var(--space-xs);
+    }
+    
+    .skill-card__icon {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .skill-card__icon-img {
+      width: 24px;
+      height: 24px;
+    }
+  }

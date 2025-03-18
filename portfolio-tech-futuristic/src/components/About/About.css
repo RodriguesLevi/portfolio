@@ -1,0 +1,214 @@
+/* About.css - seguindo metodologia BEM */
+
+.about {
+    position: relative;
+    background-color: var(--color-bg-primary);
+    overflow: hidden;
+    padding: var(--space-xxl) 0;
+  }
+  
+  /* Elementos decorativos */
+  .about__decoration {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.08;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .about__decoration--1 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(45deg, var(--color-accent-primary), #7000ff);
+    top: -200px;
+    right: -200px;
+  }
+  
+  .about__decoration--2 {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    bottom: -150px;
+    left: -150px;
+  }
+  
+  .about__content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space-xl);
+    position: relative;
+    z-index: 1;
+    margin-top: var(--space-lg);
+  }
+  
+  /* Área de texto */
+  .about__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .about__paragraph {
+    color: var(--color-text-secondary);
+    font-size: var(--fz-md);
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+  }
+  
+  .about__highlight {
+    color: var(--color-accent-primary);
+    font-weight: var(--fw-medium);
+  }
+  
+  .about__skills-list {
+    margin-top: var(--space-md);
+  }
+  
+  .about__skills-title {
+    font-size: var(--fz-md);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .about__skills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xs) var(--space-md);
+    padding: 0;
+    list-style: none;
+  }
+  
+  .about__skill {
+    position: relative;
+    padding-left: var(--space-md);
+    color: var(--color-text-secondary);
+    font-family: var(--font-secondary);
+    font-size: var(--fz-sm);
+  }
+  
+  .about__skill::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-primary);
+    font-size: var(--fz-md);
+  }
+  
+  /* Área da imagem */
+  .about__image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .about__image-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+  
+  .about__image {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius-md);
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1);
+    transition: all var(--transition-normal);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .about__image-wrapper:hover .about__image {
+    filter: grayscale(0%) contrast(1.05);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .about__image-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(100, 255, 218, 0.1);
+    border-radius: var(--border-radius-md);
+    transform: translate(20px, 20px);
+    z-index: 1;
+    transition: transform var(--transition-normal);
+  }
+  
+  .about__image-wrapper:hover .about__image-decoration {
+    transform: translate(15px, 15px);
+  }
+  
+  .about__image-border {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius-md);
+    padding: 2px;
+    background: linear-gradient(
+      to bottom right,
+      var(--color-accent-primary),
+      transparent,
+      var(--color-accent-primary)
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 3;
+    opacity: 0.7;
+    transition: opacity var(--transition-normal);
+  }
+  
+  .about__image-wrapper:hover .about__image-border {
+    opacity: 1;
+  }
+  
+  /* Media queries para responsividade */
+  @media (max-width: 1024px) {
+    .about__content {
+      gap: var(--space-lg);
+    }
+    
+    .about__image-wrapper {
+      width: 250px;
+      height: 250px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about__content {
+      grid-template-columns: 1fr;
+    }
+    
+    .about__text {
+      order: 2;
+    }
+    
+    .about__image-container {
+      order: 1;
+      margin-bottom: var(--space-lg);
+    }
+    
+    .about__image-wrapper {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about__paragraph {
+      font-size: var(--fz-sm);
+    }
+    
+    .about__skills {
+      grid-template-columns: 1fr;
+    }
+    
+    .about__decoration {
+      opacity: 0.05;
+    }
+  }

@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react';
-import { motion } from 'framer-motion';
 import Particles from 'react-particles';
 import { loadSlim } from 'tsparticles-slim';
 import './Hero.css';
@@ -96,34 +95,34 @@ const Hero = () => {
       />
       
       <div className="hero__content">
-        <motion.div 
+        <div 
           className="hero__text-container"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.div className="hero__greeting" variants={itemVariants}>
+          <div className="hero__greeting" variants={itemVariants}>
             Olá, meu nome é
-          </motion.div>
+          </div>
           
-          <motion.h1 className="hero__title" variants={itemVariants}>
+          <h1 className="hero__title" variants={itemVariants}>
             <span className="hero__name">Seu Nome</span>
             <span className="hero__position">Desenvolvedor Front-end</span>
-          </motion.h1>
+          </h1>
           
-          <motion.p className="hero__description" variants={itemVariants}>
+          <p className="hero__description" variants={itemVariants}>
             Sou um desenvolvedor especializado em criar experiências digitais excepcionais. 
             Foco em construir aplicações web responsivas e interativas 
             que aliam design moderno com código limpo e eficiente.
-          </motion.p>
+          </p>
           
-          <motion.div variants={itemVariants}>
+          <div variants={itemVariants}>
             <a href="#projects" className="hero__cta-button">
               <span className="hero__cta-button-text">Ver Projetos</span>
               <span className="hero__cta-button-icon">→</span>
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
       
       <div className="hero__scroll-indicator">

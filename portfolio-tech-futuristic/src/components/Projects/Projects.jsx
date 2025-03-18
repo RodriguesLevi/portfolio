@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import ProjectCard from './ProjectCard';
 import './Projects.css';
@@ -127,7 +127,7 @@ const Projects = () => {
     <section id="projects" className="projects">
       <div className="container">
         <div className="section__header">
-          <motion.h2 
+          <h2 
             className="section__title"
             initial={{ opacity: 0, y: -20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -136,10 +136,10 @@ const Projects = () => {
           >
             <span className="section__title-number">03.</span>
             Meus Projetos
-          </motion.h2>
+          </h2>
         </div>
 
-        <motion.div 
+        <div 
           className="projects__tabs"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -153,7 +153,7 @@ const Projects = () => {
             >
               {category.label}
               {activeTab === category.id && (
-                <motion.div 
+                <div 
                   className="projects__tab-indicator"
                   layoutId="activeTab"
                   transition={{ type: 'spring', damping: 25, stiffness: 300 }}
@@ -161,26 +161,26 @@ const Projects = () => {
               )}
             </button>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div 
+        <div 
           className="projects__grid"
           variants={containerVariants}
           initial="hidden"
           animate={controls}
         >
           {filteredProjects.map(project => (
-            <motion.div 
+            <div 
               key={project.id} 
               className="projects__item"
               variants={itemVariants}
             >
               <ProjectCard project={project} />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div 
+        <div 
           className="projects__more"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -195,7 +195,7 @@ const Projects = () => {
             <span>Ver Mais no GitHub</span>
             <span className="button__icon">→</span>
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

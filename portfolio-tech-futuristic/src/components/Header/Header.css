@@ -27,6 +27,8 @@
   .header__nav-item {
     position: relative;
     font-size: 1rem;
+    color: #ccd6f6;
+    text-decoration: none;
   }
   
   /* Modificador */
