@@ -3,6 +3,10 @@
   --color-bg-primary: #0a192f;
   --color-bg-secondary: #112240;
   --color-bg-tertiary: #233554;
+  h2{
+    color: #ccd6f6
+    ;
+  }
   
   /* Cores de destaque */
   --color-accent-primary: #64ffda;

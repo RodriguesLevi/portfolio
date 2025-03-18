@@ -106,7 +106,7 @@ const Hero = () => {
           </div>
           
           <h1 className="hero__title" variants={itemVariants}>
-            <span className="hero__name">Seu Nome</span>
+            <span className="hero__name">Alisson Rodrigues</span>
             <span className="hero__position">Desenvolvedor Front-end</span>
           </h1>
           

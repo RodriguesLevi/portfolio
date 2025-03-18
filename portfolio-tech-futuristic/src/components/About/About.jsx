@@ -3,6 +3,7 @@ import { useAnimation } from 'framer-motion';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import useParallax from '../../hooks/useParallax';
 import './About.css';
+import foto from '../../../public/assets/images/foto-de-perfil.png'
 
 const About = () => {
   const controls = useAnimation();
@@ -70,7 +71,7 @@ const About = () => {
             transition={{ duration: 0.5 }}
             ref={ref}
           >
-            <span className="section__title-number">01.</span>
+            <span className="section__title-number"></span>
             Sobre Mim
           </h2>
         </div>
@@ -83,7 +84,7 @@ const About = () => {
             animate={controls}
           >
             <p variants={itemVariants} className="about__paragraph">
-              Olá! Meu nome é <span className="about__highlight">Seu Nome</span> e 
+              Olá! Meu nome é <span className="about__highlight">Alisson Rodrigues</span> e 
               sou um desenvolvedor front-end apaixonado por criar experiências digitais 
               que são tanto funcionais quanto visualmente atraentes.
             </p>
@@ -119,7 +120,6 @@ const About = () => {
                 <li className="about__skill">Node.js</li>
                 <li className="about__skill">TypeScript</li>
                 <li className="about__skill">HTML & CSS</li>
-                <li className="about__skill">Sass/SCSS</li>
                 <li className="about__skill">Git & GitHub</li>
                 <li className="about__skill">Responsive Design</li>
               </ul>
@@ -134,7 +134,7 @@ const About = () => {
           >
             <div className="about__image-wrapper">
               <div className="about__image-decoration"></div>
-              <img src="/assets/images/profile.jpg" alt="Sua Foto" className="about__image" />
+              <img src={foto}  alt='foto de peril' className="about__image" />
               <div className="about__image-border"></div>
             </div>
           </div>
