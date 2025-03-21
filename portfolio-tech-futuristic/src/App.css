@@ -91,3 +91,9 @@
     font-size: var(--fz-md);
   }
 }
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--space-lg); /* Aumente este valor para ter mais espaço lateral */
+}

@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef  } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import './Contact.css';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   // Estado para o formulário
+
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,12 +36,13 @@ const Contact = () => {
   
   // Manipular mudanças nos campos do formulário
   const handleChange = (e) => {
+    console.log("Campo alterado:", e.target.name, e.target.value);
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData(prev => ({
+      ...prev,
       [name]: value
-    });
-    
+    }));
+           
     // Limpar erro quando o usuário começa a corrigir
     if (errors[name]) {
       setErrors({
@@ -89,22 +93,36 @@ const Contact = () => {
     });
   };
   
- // Manipular envio do formulário
-const handleSubmit = async (e) => {
+  // Modifique a função handleSubmit
+  const handleSubmit = async (e) => {
+    console.log("Formulário submetido!");
     e.preventDefault();
     
     // Validar formulário
-    if (!validateForm()) return;
+    const isValid = validateForm();
+    console.log("Formulário válido?", isValid);
+    if (!isValid) {
+      console.log("Erros de validação:", errors);
+      return;
+    }
     
     setIsSubmitting(true);
     setSubmitStatus(null);
     
-    // Simulação de envio (em um projeto real, chamaríamos uma API)
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Enviar email usando EmailJS
+      // Você precisa se registrar em emailjs.com e obter suas próprias chaves
+      const result = await emailjs.sendForm(
+        'YOUR_SERVICE_ID', // Substitua pelo seu Service ID
+        'YOUR_TEMPLATE_ID', // Substitua pelo seu Template ID
+        form.current,
+        'YOUR_PUBLIC_KEY' // Substitua pela sua Public Key
+      );
       
-      // Simulação de sucesso
+      console.log('Email enviado!', result.text);
       setSubmitStatus('success');
+      
+      // Limpar formulário
       setFormData({
         name: '',
         email: '',
@@ -117,6 +135,7 @@ const handleSubmit = async (e) => {
         setSubmitStatus(null);
       }, 5000);
     } catch (error) {
+      console.error('Erro ao enviar email:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -148,7 +167,7 @@ const handleSubmit = async (e) => {
     <section id="contact" className="contact">
       <div className="container">
         <div className="section__header">
-          <motion.h2 
+          <h2 
             className="section__title"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -157,24 +176,24 @@ const handleSubmit = async (e) => {
           >
             <span className="section__title-number">04.</span>
             Entre em Contato
-          </motion.h2>
+          </h2>
         </div>
         
         <div className="contact__content">
-          <motion.div 
+          <div 
             className="contact__text"
             variants={containerVariants}
             initial="hidden"
             animate={controls}
           >
-            <motion.h3 
+            <h3 
               className="contact__subtitle"
               variants={itemVariants}
             >
               Vamos conversar sobre seu projeto!
-            </motion.h3>
+            </h3>
             
-            <motion.p 
+            <p 
               className="contact__description"
               variants={itemVariants}
             >
@@ -182,9 +201,9 @@ const handleSubmit = async (e) => {
               Se você tem um projeto que precisa de um desenvolvedor front-end
               com experiência em criar interfaces modernas e responsivas, 
               entre em contato comigo!
-            </motion.p>
+            </p>
             
-            <motion.div 
+            <div 
               className="contact__info"
               variants={itemVariants}
             >
@@ -223,9 +242,9 @@ const handleSubmit = async (e) => {
                   <p className="contact__info-text">(11) 99954-8005</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
             
-            <motion.div 
+            <div 
               className="contact__social"
               variants={itemVariants}
             >
@@ -251,17 +270,18 @@ const handleSubmit = async (e) => {
                   <path fillRule="evenodd" clipRule="evenodd" d="M5 1C2.79086 1 1 2.79086 1 5V19C1 21.2091 2.79086 23 5 23H19C21.2091 23 23 21.2091 23 19V5C23 2.79086 21.2091 1 19 1H5ZM19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" fill="currentColor"/>
                 </svg>
               </a>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.form 
+          <form 
+           ref={formRef}
             className="contact__form"
             onSubmit={handleSubmit}
             variants={containerVariants}
             initial="hidden"
             animate={controls}
           >
-            <motion.div 
+            <div 
               className="contact__form-group"
               variants={itemVariants}
             >
@@ -276,9 +296,9 @@ const handleSubmit = async (e) => {
                 onChange={handleChange}
               />
               {errors.name && <span className="contact__form-error">{errors.name}</span>}
-            </motion.div>
+            </div>
             
-            <motion.div 
+            <div 
               className="contact__form-group"
               variants={itemVariants}
             >
@@ -293,9 +313,9 @@ const handleSubmit = async (e) => {
                 onChange={handleChange}
               />
               {errors.email && <span className="contact__form-error">{errors.email}</span>}
-            </motion.div>
+            </div>
             
-            <motion.div 
+            <div 
               className="contact__form-group"
               variants={itemVariants}
             >
@@ -310,9 +330,9 @@ const handleSubmit = async (e) => {
                 onChange={handleChange}
               />
               {errors.subject && <span className="contact__form-error">{errors.subject}</span>}
-            </motion.div>
+            </div>
             
-            <motion.div 
+            <div 
               className="contact__form-group"
               variants={itemVariants}
             >
@@ -327,9 +347,9 @@ const handleSubmit = async (e) => {
                 onChange={handleChange}
               ></textarea>
               {errors.message && <span className="contact__form-error">{errors.message}</span>}
-            </motion.div>
+            </div>
             
-            <motion.div 
+            <div 
               className="contact__form-submit"
               variants={itemVariants}
             >
@@ -363,28 +383,28 @@ const handleSubmit = async (e) => {
               </button>
               
               {submitStatus === 'success' && (
-                <motion.div 
+                <div 
                   className="contact__form-success"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                 >
                   Mensagem enviada com sucesso!
-                </motion.div>
+                </div>
               )}
               
               {submitStatus === 'error' && (
-                <motion.div 
+                <div 
                   className="contact__form-error-message"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                 >
                   Erro ao enviar a mensagem. Por favor, tente novamente.
-                </motion.div>
+                </div>
               )}
-            </motion.div>
-          </motion.form>
+            </div>
+          </form>
         </div>
       </div>
       

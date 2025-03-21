@@ -191,27 +191,6 @@
     overflow: hidden;
   }
   
-  .contact__form::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: var(--border-radius-md);
-    padding: 1px;
-    background: linear-gradient(
-      var(--rotate, 0deg),
-      rgba(100, 255, 218, 0),
-      rgba(100, 255, 218, 0.3),
-      rgba(100, 255, 218, 0)
-    );
-    -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.5;
-    animation: rotate-border 6s linear infinite;
-  }
-  
   .contact__form-group {
     margin-bottom: var(--space-md);
   }
