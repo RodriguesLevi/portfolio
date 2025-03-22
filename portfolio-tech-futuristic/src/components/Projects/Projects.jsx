@@ -20,32 +20,32 @@ const Projects = () => {
       description: 'Um portfólio pessoal com design futurista e tecnológico, desenvolvido com React e metodologia BEM.',
       tags: ['React', 'CSS', 'Framer Motion', 'BEM'],
       image: '/assets/images/project-1.jpg',
-      github: 'https://github.com/username/portfolio',
+      github: 'https://github.com/RodriguesLevi/portfolio',
       demo: 'https://portfolio-demo.com',
       featured: true,
       category: 'web'
     },
     {
       id: 2,
-      title: 'Dashboard Analytics',
-      description: 'Dashboard interativo para análise de dados com visualizações em tempo real e interface moderna.',
-      tags: ['React', 'Chart.js', 'TailwindCSS', 'API'],
+      title: 'Sabor & Art',
+      description: 'Este é um aplicativo front-end para um restaurante, desenvolvido como parte do projeto final do curso TripleTen. O aplicativo exibe informações sobre o restaurante, seu menu e ofertas especiais, usando uma API de terceiros para obter dados de alimentos.',
+      tags: ['React', 'Chart.js', 'API'],
       image: '/assets/images/project-2.jpg',
-      github: 'https://github.com/username/dashboard',
-      demo: 'https://dashboard-demo.com',
+      github: 'https://github.com/RodriguesLevi/Sabor-Arte',
+      demo: 'https://rodrigueslevi.github.io/Sabor-Arte/',
       featured: true,
       category: 'web'
     },
     {
       id: 3,
-      title: 'App de Finanças',
-      description: 'Aplicativo mobile para controle financeiro pessoal com recursos de planejamento e análise.',
+      title: ' Project Homeland',
+      description: 'O site mostra informações sobre alguns colegas de trabalho, como aonde nasceram e algumas historias do mesmo de suas cidades de origem e fotos',
       tags: ['React Native', 'Firebase', 'Redux', 'Expo'],
       image: '/assets/images/project-3.jpg',
-      github: 'https://github.com/username/finance-app',
+      github: 'https://github.com/RodriguesLevi/web_project_homeland',
       demo: 'https://finance-app-demo.com',
       featured: false,
-      category: 'mobile'
+      category: 'web'
     },
     {
       id: 4,

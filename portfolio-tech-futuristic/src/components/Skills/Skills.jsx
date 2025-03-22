@@ -34,16 +34,14 @@ const Skills = () => {
       { name: 'JavaScript', level: 85, icon: 'javascript' },
       { name: 'React', level: 80, icon: 'react' },
       { name: 'Vue.js', level: 70, icon: 'vuejs' },
-      { name: 'Sass/SCSS', level: 75, icon: 'sass' },
-      { name: 'Tailwind CSS', level: 80, icon: 'tailwind' },
       { name: 'TypeScript', level: 75, icon: 'typescript' }
     ],
     backend: [
       { name: 'Node.js', level: 75, icon: 'nodejs' },
       { name: 'Express', level: 70, icon: 'express' },
       { name: 'Django', level: 60, icon: 'django' },
-      { name: 'MongoDB', level: 70, icon: 'mongodb' },
-      { name: 'MySQL', level: 65, icon: 'mysql' },
+      { name: 'MongoDB', level: 70, icon: 'mongodb'},
+      { name: 'NoSQL', level: 65, icon: 'Nosql' },
     ],
     tools: [
       { name: 'Git', level: 85, icon: 'git' },
@@ -51,8 +49,6 @@ const Skills = () => {
       { name: 'Docker', level: 65, icon: 'docker' },
       { name: 'Figma', level: 75, icon: 'figma' },
       { name: 'VS Code', level: 90, icon: 'vscode' },
-      { name: 'CI/CD', level: 60, icon: 'cicd' },
-      { name: 'Jest', level: 65, icon: 'jest' },
       { name: 'NPM', level: 80, icon: 'npm' }
     ]
   };
