@@ -41,12 +41,9 @@ const Skills = () => {
     backend: [
       { name: 'Node.js', level: 75, icon: 'nodejs' },
       { name: 'Express', level: 70, icon: 'express' },
-      { name: 'Python', level: 65, icon: 'python' },
       { name: 'Django', level: 60, icon: 'django' },
-      { name: 'PHP', level: 60, icon: 'php' },
       { name: 'MongoDB', level: 70, icon: 'mongodb' },
       { name: 'MySQL', level: 65, icon: 'mysql' },
-      { name: 'Firebase', level: 75, icon: 'firebase' }
     ],
     tools: [
       { name: 'Git', level: 85, icon: 'git' },

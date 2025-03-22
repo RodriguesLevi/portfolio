@@ -93,16 +93,15 @@ const Contact = () => {
     });
   };
   
-  // Modifique a função handleSubmit
   const handleSubmit = async (e) => {
-    console.log("Formulário submetido!");
     e.preventDefault();
     
     // Validar formulário
     const isValid = validateForm();
-    console.log("Formulário válido?", isValid);
+    console.log(isValid);
+    
     if (!isValid) {
-      console.log("Erros de validação:", errors);
+      console.log(errors);
       return;
     }
     
@@ -110,38 +109,48 @@ const Contact = () => {
     setSubmitStatus(null);
     
     try {
-      // Enviar email usando EmailJS
-      // Você precisa se registrar em emailjs.com e obter suas próprias chaves
-      const result = await emailjs.sendForm(
-        'YOUR_SERVICE_ID', // Substitua pelo seu Service ID
-        'YOUR_TEMPLATE_ID', // Substitua pelo seu Template ID
-        form.current,
-        'YOUR_PUBLIC_KEY' // Substitua pela sua Public Key
-      );
+      // Usando XMLHttpRequest em vez de fetch
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "https://formspree.io/f/xvgkapne", true);
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.onloadend = function() {
+        if (xhr.status === 200) {
+          
+          setSubmitStatus('success');
+          
+          // Limpar o formulário
+          setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+          });
+          
+          // Resetar status após 5 segundos
+          setTimeout(() => {
+            setSubmitStatus(null);
+          }, 5000);
+        } else {
+          console.error(xhr.statusText);
+          setSubmitStatus('error');
+        }
+        setIsSubmitting(false);
+      };
       
-      console.log('Email enviado!', result.text);
-      setSubmitStatus('success');
-      
-      // Limpar formulário
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+      const jsonData = JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message
       });
       
-      // Resetar status após 5 segundos
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 5000);
+      xhr.send(jsonData);
     } catch (error) {
-      console.error('Erro ao enviar email:', error);
+      console.error(error);
       setSubmitStatus('error');
-    } finally {
       setIsSubmitting(false);
     }
   };
-  
   // Variantes de animação
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -280,6 +289,7 @@ const Contact = () => {
             variants={containerVariants}
             initial="hidden"
             animate={controls}
+            method="POST"
           >
             <div 
               className="contact__form-group"
