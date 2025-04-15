@@ -19,7 +19,7 @@ const Projects = () => {
       title: 'Portfolio Futurista',
       description: 'Um portfólio pessoal com design futurista e tecnológico, desenvolvido com React e metodologia BEM.',
       tags: ['React', 'CSS', 'Framer Motion', 'BEM'],
-      image: '/assets/images/project-1.jpg',
+      image: '/assets/images/image_01.png',
       github: 'https://github.com/RodriguesLevi/portfolio',
       demo: 'https://portfolio-demo.com',
       featured: true,
@@ -30,7 +30,7 @@ const Projects = () => {
       title: 'Sabor & Art',
       description: 'Este é um aplicativo front-end para um restaurante, desenvolvido como parte do projeto final do curso TripleTen. O aplicativo exibe informações sobre o restaurante, seu menu e ofertas especiais, usando uma API de terceiros para obter dados de alimentos.',
       tags: ['React', 'Chart.js', 'API'],
-      image: '/assets/images/project-2.jpg',
+      image: '/assets/images/image_02.png',
       github: 'https://github.com/RodriguesLevi/Sabor-Arte',
       demo: 'https://rodrigueslevi.github.io/Sabor-Arte/',
       featured: true,
@@ -38,48 +38,26 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: ' Project Homeland',
+      title: 'Project Homeland',
       description: 'O site mostra informações sobre alguns colegas de trabalho, como aonde nasceram e algumas historias do mesmo de suas cidades de origem e fotos',
-      tags: ['React Native', 'Firebase', 'Redux', 'Expo'],
-      image: '/assets/images/project-3.jpg',
+      tags: ['HTML', 'CSS', 'BEM'],
+      image: '/assets/images/image_03.png',
       github: 'https://github.com/RodriguesLevi/web_project_homeland',
-      demo: 'https://finance-app-demo.com',
+      demo: 'https://rodrigueslevi.github.io/web_project_homeland/',
       featured: false,
       category: 'web'
     },
     {
       id: 4,
-      title: 'E-commerce Store',
-      description: 'Loja virtual completa com catálogo de produtos, carrinho de compras e checkout.',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      image: '/assets/images/project-4.jpg',
-      github: 'https://github.com/username/ecommerce',
-      demo: 'https://ecommerce-demo.com',
+      title: ' Web Project API Full',
+      description: ' Web Project API Full Aplicação fullstack que combina React.js (Vite) no front-end e Node.js (Express, MongoDB) no back-end. Permite que os usuários criem e personalizem perfis, adicionem fotos e interajam com postagens. O sistema possui autenticação JWT, API segura e layout responsivo.',
+      tags: ['React', 'Node.js', 'MongoDB', 'Vite', 'Express'],
+      image: '/assets/images/image_04.png',
+      github: 'https://github.com/RodriguesLevi/web_project_api_full',
+      demo: '',
       featured: true,
       category: 'web'
     },
-    {
-      id: 5,
-      title: 'Rede Social AI',
-      description: 'Plataforma de rede social com recursos de inteligência artificial para personalização de conteúdo.',
-      tags: ['React', 'Python', 'TensorFlow', 'AWS'],
-      image: '/assets/images/project-5.jpg',
-      github: 'https://github.com/username/ai-social',
-      demo: 'https://ai-social-demo.com',
-      featured: false,
-      category: 'ai'
-    },
-    {
-      id: 6,
-      title: 'App de Clima',
-      description: 'Aplicativo de previsão do tempo com interface minimalista e dados em tempo real.',
-      tags: ['React Native', 'API', 'Styled Components'],
-      image: '/assets/images/project-6.jpg',
-      github: 'https://github.com/username/weather-app',
-      demo: 'https://weather-app-demo.com',
-      featured: false,
-      category: 'mobile'
-    }
   ];
 
   // Categorias de projetos
@@ -187,7 +165,7 @@ const Projects = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
         >
           <a 
-            href="https://github.com/username" 
+            href="https://github.com/RodriguesLevi" 
             target="_blank" 
             rel="noopener noreferrer"
             className="button"
