@@ -64,7 +64,7 @@ const Footer = () => {
           </div>
           
           <div className="footer__design">
-            Desenvolvido com <span className="footer__heart">❤</span> por Você
+            Desenvolvido com <span className="footer__heart">❤</span> por Alisson Rodrigues
           </div>
         </div>
       </div>
